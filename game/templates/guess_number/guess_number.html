@@ -1,0 +1,11 @@
+<form action="." method="post">
+  {% csrf_token %}
+  Number:<br>
+  <input type="number" name="guess"><br>
+  <input type="submit" value="Submit">
+  {{ message }}
+  {% if guess != answer %}
+    <p> The correct number was: {{ answer }} </p>
+  {% endif %}
+
+</form>

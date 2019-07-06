@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h2>Welcome to 'Guess Number Game'</h2>
+{% if user.is_authenticated %}
+  Hi {{ user.username }}! Our Game is strict :) You've got only one attempt
+  <a href="{% url 'start_game' %}">Start Game</a>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <p>You have to be logged in to Start Game</p>
+  <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'signup' %}">Sign Up</a>
+
+{% endif %}
+{% endblock %}
